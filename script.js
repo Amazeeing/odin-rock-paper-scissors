@@ -49,4 +49,11 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
 
+    const NUMBER_OF_ROUNDS = 5;
+
+    let playerSelection = "";
+    for (let index = 0; index < NUMBER_OF_ROUNDS; index++) {
+        playerSelection = prompt("Enter a hand: ");
+        console.log(playRound(playerSelection, getComputerChoice()));
+    } 
 }
