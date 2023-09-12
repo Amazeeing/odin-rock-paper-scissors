@@ -2,11 +2,11 @@ function getComputerChoice() {
     const randomNumber = Math.random();
     let result = "";
 
-    if(randomNumber < 0.3) {
+    if (randomNumber < 0.33) {
         result = "Rock";
-    } else if(randomNumber >= 0.3 && randomNumber < 0.6) {
+    } else if (randomNumber >= 0.33 && randomNumber < 0.66) {
         result = "Paper";
-    } else {
+    } else if (randomNumber >= 0.66) {
         result = "Scissors";
     }
 
@@ -15,15 +15,15 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-    let playerSelectionToLowerCase = playerSelection.toLowerCase();
-    let computerSelectionToLowerCase = computerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
 
-    const winningPhrase = playerSelectionToLowerCase + " beat " + computerSelectionToLowerCase + "! " + "You won!";
-    const losingPhrase = playerSelectionToLowerCase + " was beat by " + computerSelectionToLowerCase + ". " + "You lost..." 
+    const winningPhrase = playerSelection + " beat " + computerSelection + "! " + "You won!";
+    const losingPhrase = playerSelection + " was beat by " + computerSelection + ". " + "You lost..." 
 
     let hasPlayerWon = false;
 
-    switch (playerSelection.toLowerCase()) {
+    switch (playerSelection) {
         case "rock":
             hasPlayerWon = computerSelection === "scissors"; 
             break;
@@ -40,7 +40,7 @@ function playRound(playerSelection, computerSelection) {
             break;
     }
 
-    if(hasPlayerWon) {
+    if (hasPlayerWon) {
         return winningPhrase;
     } else {
         return losingPhrase;
@@ -57,3 +57,5 @@ function game() {
         console.log(playRound(playerSelection, getComputerChoice()));
     } 
 }
+
+game();
