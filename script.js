@@ -46,10 +46,32 @@ function playRound(playerSelection, computerSelection) {
     }
 
     if (hasPlayerWon) {
+        playerScore++;
         return winningPhrase;
     } else {
+        computerScore++;
         return losingPhrase;
     }
 }
 
+let playerScore, computerScore;
+playerScore = computerScore = 0;
 
+function updateScoreboard(params) {
+    const playerScoreCounter = document.querySelector(".player .count");
+    const computerScoreCounter = document.querySelector(".computer .count");
+
+    playerScoreCounter.textContent = playerScore;
+    computerScoreCounter.textContent = computerScore;
+}
+
+const hands = document.querySelectorAll(".hands");
+hands.forEach(hand => {
+    hand.addEventListener('click', function name(params) {
+        let roundResult = playRound(element.textContent, getComputerChoice());
+        const roundResultText = document.querySelector(".round-result");
+        roundResultText.textContent = roundResult;
+
+        updateScoreboard();
+    })
+});
