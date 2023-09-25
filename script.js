@@ -20,6 +20,11 @@ function playRound(playerSelection, computerSelection) {
 
     const winningPhrase = playerSelection + " beat " + computerSelection + "! " + "You won!";
     const losingPhrase = playerSelection + " was beat by " + computerSelection + ". " + "You lost..." 
+    const tiePhrase = "No one beat no one. It's a tie!";
+
+    if (playerSelection === computerSelection) {
+        return tiePhrase;
+    }
 
     let hasPlayerWon = false;
 
@@ -46,16 +51,3 @@ function playRound(playerSelection, computerSelection) {
         return losingPhrase;
     }
 }
-
-function game() {
-
-    const NUMBER_OF_ROUNDS = 5;
-
-    let playerSelection = "";
-    for (let index = 0; index < NUMBER_OF_ROUNDS; index++) {
-        playerSelection = prompt("Enter a hand: ");
-        console.log(playRound(playerSelection, getComputerChoice()));
-    } 
-}
-
-game();
