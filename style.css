@@ -1,0 +1,27 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Arial';
+    text-align: center;
+}
+
+.hands {
+    display: flex;
+    gap: 16px;
+}
+
+.hand {
+    border: 6px solid white;
+    color: white;
+    font-size: 24px;
+    background-color: transparent;
+}
+
+.hand img {
+    height: 60%;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+}
