@@ -2,14 +2,14 @@ let playerScore, computerScore;
 playerScore = computerScore = 0;
 
 function getComputerChoice() {
-    const randomNumber = Math.random();
+    const randomNumber = Math.random() * 3.0;
     let result = "";
 
-    if (randomNumber < 0.33) {
+    if (randomNumber < 1.0) {
         result = "Rock";
-    } else if (randomNumber >= 0.33 && randomNumber < 0.66) {
+    } else if (randomNumber >= 1.0 && randomNumber < 2.0) {
         result = "Paper";
-    } else if (randomNumber >= 0.66) {
+    } else if (randomNumber >= 2.0) {
         result = "Scissors";
     }
 
@@ -69,7 +69,7 @@ function updateScoreboard(result) {
 
 const hands = document.querySelectorAll(".hands");
 hands.forEach(hand => {
-    hand.addEventListener('click', function name(params) {
+    hand.addEventListener('click', function startRound(params) {
         let roundResult = playRound(element.textContent, getComputerChoice());
         updateScoreboard(roundResult);
     })
