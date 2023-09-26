@@ -50,8 +50,10 @@ function playRound(playerSelection, computerSelection) {
 
     if (hasPlayerWon) {
         playerScore++;
+        playerScore++;
         return winningPhrase;
     } else {
+        computerScore++;
         computerScore++;
         return losingPhrase;
     }
