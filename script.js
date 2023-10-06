@@ -18,8 +18,8 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase().trim();
+    computerSelection = computerSelection.toLowerCase().trim();
 
     const winningPhrase = playerSelection + " beat " + computerSelection + "! " + "You won!";
     const losingPhrase = playerSelection + " was beat by " + computerSelection + ". " + "You lost..." 
@@ -30,7 +30,7 @@ function playRound(playerSelection, computerSelection) {
     }
 
     let hasPlayerWon = false;
-
+    
     switch (playerSelection) {
         case "rock":
             hasPlayerWon = computerSelection === "scissors"; 
@@ -64,13 +64,24 @@ function updateScoreboard(result) {
     computerScoreCounter.textContent = computerScore;
 
     const roundResultText = document.querySelector(".round-result");
-    roundResultText.textContent = roundResult;
+    roundResultText.textContent = result;
 }
 
-const hands = document.querySelectorAll(".hands");
+function resetScoreboard() {
+    playerScore = 0;
+    computerScore = 0;
+
+    updateScoreboard("");
+}
+
+const hands = document.querySelectorAll(".hand");
 hands.forEach(hand => {
-    hand.addEventListener('click', function startRound(params) {
-        let roundResult = playRound(element.textContent, getComputerChoice());
+    hand.addEventListener('click', function startRound() {
+        let roundResult = playRound(hand.textContent, getComputerChoice());
         updateScoreboard(roundResult);
+
+        if(playerScore === 5 || computerScore === 5) {
+            resetScoreboard("");
+        }
     })
 });
